@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>ws.willner.alfred.imageoptim</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>Alexander Willner</string>
+	<key>description</key>
+	<string>Compressing images without losing quality.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Optimize Images</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<integer>1</integer>
+				<key>filetypes</key>
+				<array>
+					<string>com.compuserve.gif</string>
+					<string>public.folder</string>
+					<string>public.jpeg</string>
+					<string>public.png</string>
+					<string>public.svg-image</string>
+				</array>
+				<key>name</key>
+				<string>Optimize Images</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>CE8AA770-FD08-4A91-B13F-8531B5A8A849</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>./imageoptim "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>An Alfred Workflow to compress images without losing quality.</string>
+	<key>uidata</key>
+	<dict>
+		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
+		<dict>
+			<key>xpos</key>
+			<integer>325</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/AlexanderWillner/imageoptim-alfred-workflow</string>
+</dict>
+</plist>

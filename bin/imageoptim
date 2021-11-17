@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+readonly PATH_OPTIM="/Applications/ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Versions/A/Resources/"
+readonly PATH="$PATH:$PATH_OPTIM"
+
+if [ ! -e "${1}" ]; then
+  echo 2>&1 "Usage: $(basename "$0") <file or path>"
+  exit 1
+fi
+
+function run() {
+  echo -n "Optimizing ${2} with ${1}..."
+  if command -v "${1}" >/dev/null 2>&1; then
+    echo ""
+    return 0
+  else
+    echo "skipped (not found)"
+    return 1
+  fi
+}
+
+function notify() {
+  echo "${1}"
+  command -v terminal-notifier >/dev/null 2>&1 && terminal-notifier -title "Image Optimizer" -message "${1}"
+}
+
+function process_jpg() {
+  run jpegtran "${1}" && jpegtran -copy none -optimize -progressive -outfile "${1}" "${1}"
+  run jpegoptim "${1}" && jpegoptim "${1}"
+}
+
+function process_gif() {
+  t="$(mktemp)"
+
+  run gifsicle "${1}" && gifsicle -O3 -o "$t" "${1}" && mv "$t" "${1}"
+}
+
+function process_png() {
+  t="$(mktemp)"
+
+  run pngcrush "${1}" && pngcrush -warn -ow "${1}"
+  run advpng "${1}" && advpng -q -z "${1}"
+  run oxipng "${1}" && oxipng -q "${1}"
+  run pngquant "${1}" && pngquant --skip-if-larger -f -o "$t" "${1}" && mv "$t" "${1}"
+  run zopflipng "${1}" && zopflipng -y "${1}" "${1}"
+  run pngout "${1}" && pngout -q -y "${1}"
+}
+
+function process_svg() {
+  t="$(mktemp)"
+
+  run svgcleaner "${1}" && svgcleaner "${1}" "$t.svg" && mv "$t.svg" "${1}"
+}
+
+function process_input() {
+  notify "Starting..."
+  find -E "${1}" -iregex ".*\.(jpg|jpeg)" -print0 | while read -r -d $'\0' file; do
+    process_jpg "$file"
+  done
+  find -E "${1}" -iregex ".*\.(gif)" -print0 | while read -r -d $'\0' file; do
+    process_gif "$file"
+  done
+  find -E "${1}" -iregex ".*\.(png)" -print0 | while read -r -d $'\0' file; do
+    process_png "$file"
+  done
+  find -E "${1}" -iregex ".*\.(svg)" -print0 | while read -r -d $'\0' file; do
+    process_svg "$file"
+  done
+  notify "Done."
+}
+
+process_input "${1}"
