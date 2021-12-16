@@ -63,7 +63,7 @@
 				<key>concurrently</key>
 				<true/>
 				<key>escaping</key>
-				<integer>4</integer>
+				<integer>1</integer>
 				<key>script</key>
 				<string>./imageoptim "{query}"</string>
 				<key>scriptargtype</key>
@@ -100,6 +100,10 @@
 			<integer>10</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/AlexanderWillner/imageoptim-alfred-workflow</string>
 </dict>

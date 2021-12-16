@@ -3,10 +3,20 @@
 readonly PATH_OPTIM="/Applications/ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Versions/A/Resources/"
 readonly PATH="$PATH:$PATH_OPTIM"
 
-if [ ! -e "${1}" ]; then
-  echo 2>&1 "Usage: $(basename "$0") <file or path>"
-  exit 1
-fi
+function main() {
+  IFS=$' \t\n' read -e -a globs <<<"$1"
+  IFS=''
+  for glob in "${globs[@]}"; do
+    files=($glob)
+    if [ ! -e "${files[@]}" ]; then
+      echo "Error: file or path '${files[@]}' not found!"
+      echo "Usage: $(basename "$0") <file or path>"
+      exit 1
+    else
+      process_input "${files[@]}"
+    fi
+  done
+}
 
 function run() {
   echo -n "Optimizing ${2} with ${1}..."
@@ -38,12 +48,12 @@ function process_gif() {
 function process_png() {
   t="$(mktemp)"
 
-  run pngcrush "${1}" && pngcrush -warn -ow "${1}"
-  run advpng "${1}" && advpng -q -z "${1}"
-  run oxipng "${1}" && oxipng -q "${1}"
+  run pngcrush "${1}" && pngcrush -bail -ow "${1}"
+  run advpng "${1}" && advpng -z "${1}"
+  run oxipng "${1}" && oxipng "${1}"
   run pngquant "${1}" && pngquant --skip-if-larger -f -o "$t" "${1}" && mv "$t" "${1}"
   run zopflipng "${1}" && zopflipng -y "${1}" "${1}"
-  run pngout "${1}" && pngout -q -y "${1}"
+  run pngout "${1}" && pngout
 }
 
 function process_svg() {
@@ -69,4 +79,4 @@ function process_input() {
   notify "Done."
 }
 
-process_input "${1}"
+main "$@"

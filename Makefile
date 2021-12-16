@@ -29,9 +29,9 @@ feedback: ## Send feedback
 	@open https://github.com/AlexanderWillner/imageoptim-alfred-workflow
 
 lint: ## Check for lint errors
-	@$(call run,shfmt,$(WORKFLOW),-i 2 -w -s) # https://github.com/mvdan/sh
-	@$(call run,shellcheck,$(WORKFLOW)) # https://github.com/koalaman/shellcheck
-	@$(call run,shellharden,$(WORKFLOW),--check) # https://github.com/anordal/shellharden
+	@$(call run,shfmt,bin/imageoptim,-i 2 -w -s) # https://github.com/mvdan/sh
+	@$(call run,shellcheck,bin/imageoptim) # https://github.com/koalaman/shellcheck
+	@$(call run,shellharden,bin/imageoptim,--check) # https://github.com/anordal/shellharden
 
 .PHONY: workflow feedback lint
 ###############################################################################
