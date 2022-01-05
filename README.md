@@ -55,6 +55,4 @@ To create a modified version of the workflow, edit the files and run ```make wor
 
 ## Disclaimer
 
-DeepL is a product created by Kornel Lesiński.
-
 This package has been inspired by [ramiroaraujo's Image Optim Alfred Workflow](https://github.com/ramiroaraujo/alfred-image-optim-workflow).
