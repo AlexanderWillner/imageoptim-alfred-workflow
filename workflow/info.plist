@@ -8,6 +8,32 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>1B2FBD44-E195-44EB-9976-AC88094D6C13</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>833FE37A-C8D6-44B2-BDA2-B352644E2308</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1B2FBD44-E195-44EB-9976-AC88094D6C13</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<array>
 			<dict>
@@ -80,11 +106,126 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemAlternateNames</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>keyword</key>
+				<string>imageoptim</string>
+				<key>limit</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>scopes</key>
+				<array/>
+				<key>sortmode</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string>Compressing images without losing quality.</string>
+				<key>title</key>
+				<string>Optimize Images from File Buffer</string>
+				<key>types</key>
+				<array>
+					<string>com.compuserve.gif</string>
+					<string>public.folder</string>
+					<string>public.jpeg</string>
+					<string>public.png</string>
+					<string>public.svg-image</string>
+				</array>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>833FE37A-C8D6-44B2-BDA2-B352644E2308</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>addfilestobuffer</key>
+				<false/>
+				<key>clearbuffer</key>
+				<false/>
+				<key>outputtype</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.buffer</string>
+			<key>uid</key>
+			<string>1B2FBD44-E195-44EB-9976-AC88094D6C13</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>An Alfred Workflow to compress images without losing quality.</string>
 	<key>uidata</key>
 	<dict>
+		<key>1B2FBD44-E195-44EB-9976-AC88094D6C13</key>
+		<dict>
+			<key>xpos</key>
+			<integer>325</integer>
+			<key>ypos</key>
+			<integer>170</integer>
+		</dict>
+		<key>833FE37A-C8D6-44B2-BDA2-B352644E2308</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<integer>170</integer>
+		</dict>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<dict>
 			<key>xpos</key>
@@ -103,7 +244,7 @@
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/AlexanderWillner/imageoptim-alfred-workflow</string>
 </dict>
