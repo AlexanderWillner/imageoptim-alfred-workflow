@@ -4,10 +4,10 @@ readonly PATH_OPTIM="/Applications/ImageOptim.app/Contents/Frameworks/ImageOptim
 readonly PATH="$PATH:$PATH_OPTIM"
 
 function main() {
-  IFS=$' \t\n' read -e -a globs <<<"$1"
+  IFS=$' \t\n' read -e -a globs <<< "$1"
   IFS=''
   for glob in "${globs[@]}"; do
-    files=($glob)
+    files=( $glob )
     if [ ! -e "${files[@]}" ]; then
       echo "Error: file or path '${files[@]}' not found!"
       echo "Usage: $(basename "$0") <file or path>"
@@ -53,7 +53,7 @@ function process_png() {
   run oxipng "${1}" && oxipng "${1}"
   run pngquant "${1}" && pngquant --skip-if-larger -f -o "$t" "${1}" && mv "$t" "${1}"
   run zopflipng "${1}" && zopflipng -y "${1}" "${1}"
-  run pngout "${1}" && pngout
+  run pngout "${1}" && pngout "${1}"
 }
 
 function process_svg() {
