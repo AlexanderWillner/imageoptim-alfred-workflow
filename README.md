@@ -6,9 +6,13 @@
 
 ## Usage
 
-To activate this workflow invoke your hotkey for ```Universal Actions``` on a folder, JPG, PNG, GIF, or SVG file. Then select ```Optimize Images```.
+To activate this workflow invoke your hotkey for [Universal Actions](https://www.alfredapp.com/universal-actions/) on a folder, JPG, PNG, GIF, or SVG file. Then select ```Optimize Images```.
 
 ![Invoke](resources/invoke.png)
+
+Alternatively, you can use a [File Buffer](https://www.alfredapp.com/help/features/file-search/#file-buffer) by using the keyword `imageoptim`.
+
+![File Buffer](resources/buffer.png)
 
 After a few seconds the image(s) should be compressed.
 
