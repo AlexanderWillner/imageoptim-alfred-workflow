@@ -8,7 +8,7 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>1B2FBD44-E195-44EB-9976-AC88094D6C13</key>
+		<key>833FE37A-C8D6-44B2-BDA2-B352644E2308</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -21,11 +21,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>833FE37A-C8D6-44B2-BDA2-B352644E2308</key>
+		<key>87EDAAB3-4D39-44FB-BA19-1ADCA5461925</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>1B2FBD44-E195-44EB-9976-AC88094D6C13</string>
+				<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -91,9 +91,9 @@
 				<key>escaping</key>
 				<integer>1</integer>
 				<key>script</key>
-				<string>./imageoptim "{query}"</string>
+				<string>./imageoptim "${@}"</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -193,17 +193,13 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>addfilestobuffer</key>
-				<false/>
-				<key>clearbuffer</key>
-				<false/>
-				<key>outputtype</key>
-				<integer>0</integer>
+				<key>triggerid</key>
+				<string>optmize_image</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.buffer</string>
+			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
-			<string>1B2FBD44-E195-44EB-9976-AC88094D6C13</string>
+			<string>87EDAAB3-4D39-44FB-BA19-1ADCA5461925</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -212,19 +208,19 @@
 	<string>An Alfred Workflow to compress images without losing quality.</string>
 	<key>uidata</key>
 	<dict>
-		<key>1B2FBD44-E195-44EB-9976-AC88094D6C13</key>
-		<dict>
-			<key>xpos</key>
-			<integer>325</integer>
-			<key>ypos</key>
-			<integer>170</integer>
-		</dict>
 		<key>833FE37A-C8D6-44B2-BDA2-B352644E2308</key>
 		<dict>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
 			<integer>170</integer>
+		</dict>
+		<key>87EDAAB3-4D39-44FB-BA19-1ADCA5461925</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<integer>325</integer>
 		</dict>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<dict>

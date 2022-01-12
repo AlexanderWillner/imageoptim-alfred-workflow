@@ -4,16 +4,13 @@ readonly PATH_OPTIM="/Applications/ImageOptim.app/Contents/Frameworks/ImageOptim
 readonly PATH="$PATH:$PATH_OPTIM"
 
 function main() {
-  IFS=$' \t\n' read -e -a globs <<< "$1"
-  IFS=''
-  for glob in "${globs[@]}"; do
-    files=( $glob )
-    if [ ! -e "${files[@]}" ]; then
-      echo "Error: file or path '${files[@]}' not found!"
+  for file in "${@}"; do
+    if [ ! -e "${file}" ]; then
+      echo "Error: file or path '${file}' not found!"
       echo "Usage: $(basename "$0") <file or path>"
       exit 1
     else
-      process_input "${files[@]}"
+      process_input "${file}"
     fi
   done
 }
