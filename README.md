@@ -6,15 +6,12 @@
 
 ## Usage
 
-To activate this workflow invoke your hotkey for [Universal Actions](https://www.alfredapp.com/universal-actions/) on a folder, JPG, PNG, GIF, or SVG file. Then select ```Optimize Images```.
+To activate this workflow on one or multiple folders or files (JPG, PNG, GIF, or SVG) you've a number of possibilities. After a few seconds the image(s) should be compressed.
 
+1. In Finder select your files/folders, invoke your hotkey for [Universal Actions](https://www.alfredapp.com/universal-actions/), then select ```Optimize Images```.
 ![Invoke](resources/invoke.png)
-
-Alternatively, you can use a [File Buffer](https://www.alfredapp.com/help/features/file-search/#file-buffer) by using the keyword `imageoptim`.
-
+2. Or use a [File Buffer](https://www.alfredapp.com/help/features/file-search/#file-buffer) by invoking your [Alfred Hotkey](https://www.alfredapp.com/help/general/), typing the keyword `imageoptim`, typing the name of a file/folder, select multiple files using ⌥ + Arrow up, and finally pressing enter.
 ![File Buffer](resources/buffer.png)
-
-After a few seconds the image(s) should be compressed.
 
 ## Caveats
 
